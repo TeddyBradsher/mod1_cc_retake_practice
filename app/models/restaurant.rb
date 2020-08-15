@@ -14,4 +14,19 @@ class Restaurant
         @@all
     end
 
+    def menu_items
+        MenuItem.all.select do |item|
+            item.restaurant == self
+        end
+    end
+
+    def recipes
+        menu_items.map do |rec|
+            rec.restaurant.menu_items
+        end.uniq
+    end
+
+
+
+
 end

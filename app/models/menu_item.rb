@@ -6,11 +6,22 @@ class MenuItem
     def initialize(restaurant, recipe, price)
         @restaurant = restaurant
         @recipe = recipe
-        @price = price
+        @price = price.to_f
         @@all << self
     end
 
     def self.all
         @@all
     end
+
+    
+
+    def owner
+        self.restaurant.restaurant_owner 
+    end
+
+    # def owner
+    #     owner_
+    # end
+
 end

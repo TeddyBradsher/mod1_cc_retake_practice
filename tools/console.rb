@@ -22,9 +22,19 @@ recipe3 = Recipe.new("Wendy's Value Meal", "Square burger, Fries, Soda")
 recipe4 = Recipe.new("Shack Meal", "Shack burger, Fries, Soda")
 
 item1 = MenuItem.new(rest1, recipe1, 5.00)
+item1a = MenuItem.new(rest1, recipe2, 25.00)
+item1b = MenuItem.new(rest1, recipe1, 6.00)
+item1c = MenuItem.new(rest1, recipe1, 7.00)
+item1d = MenuItem.new(rest1, recipe1, 8.00)
 item2 = MenuItem.new(rest2, recipe2, 10.00)
 item3 = MenuItem.new(rest3, recipe3, 15.00)
 item4 = MenuItem.new(rest4, recipe4, 25.00)
+
+# ways to access:
+# Restaurant can offer:
+# restaurant_owner, :name, :star_rating
+
+
 
 # ===== WARNING! DO NOT EDIT BELOW THIS LINE ===== #
 binding.pry
