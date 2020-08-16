@@ -6,7 +6,7 @@ class MenuItem
     def initialize(restaurant, recipe, price)
         @restaurant = restaurant
         @recipe = recipe
-        @price = price.to_f
+        @price = price
         @@all << self
     end
 
@@ -14,14 +14,14 @@ class MenuItem
         @@all
     end
 
-    
-
     def owner
         self.restaurant.restaurant_owner 
     end
 
-    # def owner
-    #     owner_
-    # end
+    def self.most_expensive_item
+       MenuItem.all.sort_by do |item|
+            item.price
+        end.last
+    end
 
 end

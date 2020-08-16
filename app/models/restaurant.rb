@@ -26,6 +26,17 @@ class Restaurant
         end.uniq
     end
 
+    def has_dish?(menu_item)
+        menu_items.include?(menu_item)
+        #  MenuItem.all.include?(menu_item)       
+    end
+
+    def self.highest_rated
+        Restaurant.all.sort_by do |res|
+            -res.star_rating #minus reverses the array results
+        end.first
+    end
+
 
 
 

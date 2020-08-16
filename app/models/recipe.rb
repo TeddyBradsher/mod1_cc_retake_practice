@@ -35,6 +35,15 @@ class Recipe
             prices.sum / prices.count
         end
 
+        def average_price_2
+            prices = self.menu_items.map do |rec|
+                rec.price
+            end
+            prices.sum / prices.count
+
+        end
+
+
         def average_price
             self.menu_items.reduce(0.0) do |sum, recipe|
                 sum + recipe.price
@@ -52,6 +61,17 @@ class Recipe
             self.menu_items.reduce do |a, b|
                 a.price < b.price ? a.restaurant : b.restaurant
                 end
+        end
+
+        def self.inactive
+            all_recipes = Recipe.all
+            menu_recipes = MenuItem.all.map do |item|
+                item.recipe
+            end.uniq
+            answer = all_recipes - menu_recipes
+            # MenuItem.all.select do |empty|
+            #     empty.recipe.restaurant == nil
+            # end
         end
 
 

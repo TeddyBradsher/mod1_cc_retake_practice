@@ -36,6 +36,17 @@ class RestaurantOwner
         ages.sum / ages.count
     end
 
+    def sell_restaurant(restaurant, buyer)
+       owned_rest = Restaurant.all.select do |rest|
+            rest.restaurant_owner == self 
+       end
+        
+        for_sale = owned_rest.select do |rest|
+            rest == restaurant
+        end.first
+        for_sale.restaurant_owner = buyer
+        for_sale #returns restaurant instance
+    end
 
 
 end
