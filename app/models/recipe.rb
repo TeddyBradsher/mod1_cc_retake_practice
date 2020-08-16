@@ -48,10 +48,10 @@ class Recipe
             end.to_i
         end
 
-        def cheapest_restaruant
+        def cheapest_restaurant
             self.menu_items.reduce do |a, b|
-           a.price > b.price ? a.price : b.price
-           end.to_i
+                a.price < b.price ? a.restaurant : b.restaurant
+                end
         end
 
 
