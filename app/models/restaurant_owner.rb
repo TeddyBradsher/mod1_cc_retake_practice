@@ -25,8 +25,6 @@ class RestaurantOwner
         end
     end
 
-
-
     def self.average_age
         #use "ages = map results" to return an array of the all owners' ages"
         ages = RestaurantOwner.all.map do |owner|
