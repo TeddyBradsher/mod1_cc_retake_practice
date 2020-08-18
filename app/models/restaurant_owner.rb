@@ -1,4 +1,5 @@
 class RestaurantOwner
+    # CARYN SAYS: good overall! one comment on sell_restaurant 
 
     attr_accessor :name, :age
     @@all = []
@@ -35,6 +36,10 @@ class RestaurantOwner
     end
 
     def sell_restaurant(restaurant, buyer)
+        # CARYN SAYS: you can simplify a lot of this logic because the restaurant variable an Restaurant isntance
+        # and buyer is a RestaurantOwner instance.
+        # user your RestaurantOwner#restuarants method and see if it includes the restaurant instance passed in
+        # if it does, you can directly change restaurant.owner 
        owned_rest = Restaurant.all.select do |rest|
             rest.restaurant_owner == self 
        end

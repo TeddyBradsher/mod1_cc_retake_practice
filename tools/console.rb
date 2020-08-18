@@ -36,6 +36,9 @@ item3 = MenuItem.new(rest3, recipe3, 15.00)
 item4 = MenuItem.new(rest4, recipe4, 25.00)
 item5 = MenuItem.new(rest4, recipe4, 35.00)
 
+# CARYN SAYS: good number of instances to test with! If naming them by type and number works for you, keep it this way
+# if more descriptive variable names help, feel free to make them that way ie shack_meal
+
 # ways to access:
 # Restaurant can offer:
 # restaurant_owner, :name, :star_rating

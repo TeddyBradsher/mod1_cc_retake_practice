@@ -16,8 +16,9 @@ class Recipe
 
         #call an array of all instances of MenuItem class using Recipeinstance.menu_item
         def menu_items
+            # CARYN SAYS: watch your indenting! 
             MenuItem.all.select do |item|
-            item.recipe == self
+                item.recipe == self
             end
         end
 
@@ -28,6 +29,8 @@ class Recipe
             end
         end
 
+        # CARYN SAYS: why are there so many versions of average class, including as a class method? 
+        # if there is code that is old / you discovered you didnt need or didn't work please comment out and say that! 
         def self.average_price_class
             prices = MenuItem.all.map do |rec|
                 rec.price
@@ -45,6 +48,7 @@ class Recipe
 
 
         def average_price
+            # CARYN SAYS: generally looks good, but i wouldn't call the menu_item element a recipe, cause it's not a recipe :) 
             self.menu_items.reduce(0.0) do |sum, recipe|
                 sum + recipe.price
             end/self.menu_items.size
@@ -52,8 +56,9 @@ class Recipe
         end
 
         def highest_price
-             self.menu_items.reduce do |a, b|
-            a.price > b.price ? a.price : b.price
+            # CARYN SAYS: max_by would be a better enumerable to use here, and then make sure you're returning the integer price! 
+            self.menu_items.reduce do |a, b|
+                a.price > b.price ? a.price : b.price
             end.to_i
         end
 
@@ -69,6 +74,10 @@ class Recipe
                 item.recipe
             end.uniq
             answer = all_recipes - menu_recipes
+            # CARYN SAYS: you can't  subtract arrays
+            # what's below here is actually closer to the logic for this!
+            # we need to select just the Recipe instances that do have restaurants
+
             # MenuItem.all.select do |empty|
             #     empty.recipe.restaurant == nil
             # end
